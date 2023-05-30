@@ -15,7 +15,7 @@ getProductForm.addEventListener('submit', function(event) {
     .then(data => {
       // Process the retrieved data
       console.log(data); // For example, log the retrieved data
-      if ( "image, name, price, _id, description" === "iimage, name, price, _id, description" ) {
+      if ( data.hasOwnProperty("image") && data.hasOwnProperty("name") && data.hasOwnProperty("price") && data.hasOwnProperty("_id") && data.hasOwnProperty("description")) {
        outputElement.innerHTML = `
         <div class="product-card">
         <div class="product-image">
@@ -36,8 +36,9 @@ getProductForm.addEventListener('submit', function(event) {
       } else (
         outputElement.innerHTML = `
         <div class="deleted-card">
-        <div class="deleted-name">
-            <p>${data.message}</p>
+            <div class="deleted-name">
+            <h3>${data.message}</h3>
+            </div>
         </div>`
       )
     })
