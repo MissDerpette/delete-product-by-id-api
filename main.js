@@ -2,8 +2,6 @@
 
 const outputElement = document.querySelector('.output');
 const appElement = document.querySelector('.app'); 
-
-
 const getProductForm = document.querySelector('#get-product-id-form');
 getProductForm.addEventListener('submit', function(event) {
   event.preventDefault();
@@ -17,8 +15,6 @@ getProductForm.addEventListener('submit', function(event) {
     .then(data => {
       // Process the retrieved data
       console.log(data); // For example, log the retrieved data
-
-
       if ( "image, name, price, _id, description" === "iimage, name, price, _id, description" ) {
        outputElement.innerHTML = `
         <div class="product-card">
@@ -39,24 +35,17 @@ getProductForm.addEventListener('submit', function(event) {
        `; 
       } else (
         outputElement.innerHTML = `
-        <div class=product-card">
-        <div class="product-name">
-            <h3>${data.message}</h3>
+        <div class="deleted-card">
+        <div class="deleted-name">
+            <p>${data.message}</p>
         </div>`
       )
-
-
-
-
-
-
     })
     .catch(error => {
       // Handle any errors that occurred during the request
       console.log('Error:', error);
     });
 });
-
 
 const updateForm = document.querySelector('#update-product-form');
 updateForm.addEventListener('submit', function(event){
@@ -78,11 +67,8 @@ updateForm.addEventListener('submit', function(event){
         return formData
     };
 
-
-    
     let productId = document.querySelector('#u-product-id').value;
     let updatedUrl = `http://206.189.148.20:8080/api/update/${productId}`
-    
 
     fetch(updatedUrl, {
         method: 'PUT',
@@ -95,8 +81,7 @@ updateForm.addEventListener('submit', function(event){
     .then(response => response.json())
     .then(data => {
         console.log('Response', data);
-
-        
+    
     // fetch
 });
 })
