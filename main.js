@@ -18,8 +18,9 @@ getProductForm.addEventListener('submit', function(event) {
       // Process the retrieved data
       console.log(data); // For example, log the retrieved data
 
-      // Update the DOM with the retrieved data
-      outputElement.innerHTML = `
+
+      if ( "image, name, price, _id, description" === "iimage, name, price, _id, description" ) {
+       outputElement.innerHTML = `
         <div class="product-card">
         <div class="product-image">
             <img src="${data.image}">
@@ -36,6 +37,18 @@ getProductForm.addEventListener('submit', function(event) {
         <div class="add-to-card submit-button">Update</div>
       </div>
        `; 
+      } else (
+        outputElement.innerHTML = `
+        <div class=product-card">
+        <div class="product-name">
+            <h3>${data.message}</h3>
+        </div>`
+      )
+
+
+
+
+
 
     })
     .catch(error => {
@@ -88,37 +101,6 @@ updateForm.addEventListener('submit', function(event){
 });
 })
 //start of delete-crud
-// let deletedId = document.querySelector('#d-product-id').value;
-// let deletedUrl = `http://206.189.148.20:8080/api/delete/${deletedId}`
-
-// function deletedData() {
-//     fetch(deletedUrl, {
-//         method: 'DELETE',
-//         headers: {
-//             'Content-Type': 'application/json',
-//         },
-//     })
-//     .then(response => {
-//         if (response.ok) {
-//             console.log('Data deleted successfully!');
-//         } else {
-//             console.error('Failed to delete data.');
-//         }
-//     })
-
-//     .catch(error => {
-//         console.error('Error:', error);
-//     });
-// }
-
-// const delDataForm = document.querySelector('#delete-product-id-form');
-// delDataForm.addEventListener('submit', function(event){
-//     event.preventDefault();
-//     console.log('delForm, deletedData');
-// })
-
-
-
 function deletedData() {
 
     let deletedId = document.querySelector('#d-product-id').value;
